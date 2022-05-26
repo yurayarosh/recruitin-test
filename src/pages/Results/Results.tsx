@@ -1,9 +1,13 @@
 import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Preloader from '../../components/Preloader/Preloader'
+import ResultsList from '../../components/ResultsList/ResultsList'
 import Search from '../../components/Search/Search'
 import { useAppDispatch, useAppSelector } from '../../hooks/store'
 import { RouteNames } from '../../router'
 import { fetchSearchResults } from '../../store/slices/resultsActions'
+
+import styles from './Results.module.scss'
 
 const Results: FC = () => {
   const dispatch = useAppDispatch()
@@ -20,18 +24,14 @@ const Results: FC = () => {
   }, [searchData])
 
   return (
-    <section className="results-page">
-      <Search />
+    <section className={styles.page}>
+      <div className="container">
+        <div className={styles.inner}>
+          <Search />
 
-      <ul className="results">
-        <li>
-          {typeResult?.results.map((res, i) => (
-            <div key={i} className="card">
-              {res.name}
-            </div>
-          ))}
-        </li>
-      </ul>
+          {typeResult?.results ? <ResultsList /> : <Preloader />}
+        </div>
+      </div>
     </section>
   )
 }

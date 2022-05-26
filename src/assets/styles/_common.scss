@@ -1,0 +1,47 @@
+html {
+  font-family: sans-serif;
+  color: #5f6368;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+
+  color: #4285f4;
+
+  li {
+    &.active {
+      color: #5f6368;
+    }
+
+    &.disabled {
+      display: none;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+
+    cursor: pointer;
+  }
+}

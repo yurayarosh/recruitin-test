@@ -3,7 +3,8 @@ export interface ITypes {
 }
 
 export interface ICard {
-  name: string
+  name?: string
+  title?: string
   starships: string[]
   films: string[]
   vehicles: string[]
